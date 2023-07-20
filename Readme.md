@@ -11,34 +11,20 @@ Work-in progress
 - UWP
 - sdk => 10240
 
-'''
-
+```
 WalletPass
-
 BackgroundTask
-
 ClassesRT
-
 Coding4Fun.Toolkit
-
 Coding4Fun.Toolkit.Controls
-
 HereLauncher
-
 Microsoft.Phone.Controls.Toolkit
-
 WindowsPhone.MVVM.Tombstone
-
 WPControls
-
 WriteableBitmapEx.WinRT
-
 Microsoft.WindowsAzure.Messaging
-
 ZXing.wp
-
-
-'''
+```
 
 ## .
 As is. No support. RnD only. DIY.
