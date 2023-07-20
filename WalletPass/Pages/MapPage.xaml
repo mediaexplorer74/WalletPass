@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="WalletPass.MapPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    xmlns:local="clr-namespace:WalletPass" 
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    mc:Ignorable="d"
+    >
+
+    <Page.Resources>
+        <!--local:StringToColorConverter x:Key="StringToColor"/-->
+    </Page.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="567"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <!--Map x:Name="map" Grid.Row="0" Grid.RowSpan="2" 
+             Heading="0" CartographicMode="Road" LandmarksEnabled="true" PedestrianFeaturesEnabled="true" /-->
+        
+        <Grid x:Name="geoInfo" Grid.Row="1" Visibility="Collapsed" Background="{Binding Source={StaticResource AppSettings}, Path=themeColorMain,Converter={StaticResource StringToColor} }" Margin="0,-10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="txtBlock1" Grid.Row="0" FontSize="28" FontWeight="Bold" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" ></TextBlock>
+            <TextBlock x:Name="txtBlock2" Grid.Row="1" FontSize="24" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }"></TextBlock>
+            <TextBlock x:Name="txtBlock3" Grid.Row="2" FontSize="24" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }"></TextBlock>
+        </Grid>
+
+    </Grid>
+
+    <!--Page.ApplicationBar>
+        <shell:ApplicationBar IsVisible="False" IsMenuEnabled="True">
+        </shell:ApplicationBar>
+    </Page.ApplicationBar-->
+</Page>

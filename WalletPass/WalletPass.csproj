@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{5C3DD5A5-3EA8-493F-8170-B0B91EAE93A7}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WalletPass</RootNamespace>
+    <AssemblyName>WalletPass</AssemblyName>
+    <DefaultLanguage>ru-RU</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationUnhandledExceptionEventArgs.cs" />
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="AutoLaunch\UriMapperBase.cs" />
+    <Compile Include="ILoopingSelectorDataSource.cs" />
+    <Compile Include="Pages\ApplicationBarIconButton.cs" />
+    <Compile Include="Pages\ApplicationBarMenuItem.cs" />
+    <Compile Include="Pages\archivedPage.xaml.cs" />
+    <Compile Include="AsyncHelpers.cs" />
+    <Compile Include="AutoLaunch\AssociationUriMapper.cs" />
+    <Compile Include="BackgroundTasks.cs" />
+    <Compile Include="Barcode.cs" />
+    <Compile Include="Pages\changesPage.xaml.cs" />
+    <Compile Include="ClaseCurrency.cs" />
+    <Compile Include="ClaseField.cs" />
+    <Compile Include="ClaseFieldImg.cs" />
+    <Compile Include="ClaseGeofence.cs" />
+    <Compile Include="ClaseGetSerialsJSON.cs" />
+    <Compile Include="ClaseGroup.cs" />
+    <Compile Include="ClaseLocations.cs" />
+    <Compile Include="ClaseMSWalletPushJSON.cs" />
+    <Compile Include="ClaseNotificationReg.cs" />
+    <Compile Include="ClasePass.cs" />
+    <Compile Include="ClasePassBackgroundTask.cs" />
+    <Compile Include="ClasePassBackgroundTaskCollection.cs" />
+    <Compile Include="ClasePassbookWebOperations.cs" />
+    <Compile Include="ClasePassCollection.cs" />
+    <Compile Include="ClasePassCollectionUpdate.cs" />
+    <Compile Include="ClasePassDecryptor.cs" />
+    <Compile Include="ClasePassMSWalletBackgroundTaskCollection.cs" />
+    <Compile Include="ClaseRegisterDeviceJSON.cs" />
+    <Compile Include="ClaseRegisterDeviceLegacyJSON.cs" />
+    <Compile Include="ClaseReminderItems.cs" />
+    <Compile Include="ClaseSaveCalendar.cs" />
+    <Compile Include="ClaseStrings.cs" />
+    <Compile Include="ClaseStringsImg.cs" />
+    <Compile Include="ClaseToastNotifText.cs" />
+    <Compile Include="Pages\colorPickerPage.xaml.cs" />
+    <Compile Include="confpages\confAboutPage.xaml.cs" />
+    <Compile Include="confpages\confCalendarPage.xaml.cs" />
+    <Compile Include="confpages\confListPage.xaml.cs" />
+    <Compile Include="confpages\confNotificationPage.xaml.cs" />
+    <Compile Include="confpages\confPage.xaml.cs" />
+    <Compile Include="confpages\confSavePage.xaml.cs" />
+    <Compile Include="confpages\confThemePage.xaml.cs" />
+    <Compile Include="confpages\confTilesPage.xaml.cs" />
+    <Compile Include="confpages\confUpdatePage.xaml.cs" />
+    <Compile Include="ControlTiltEffect\TiltEffect.cs" />
+    <Compile Include="ControlTiltEffect\TreeHelpers.cs" />
+    <Compile Include="DateTimeToTimestampConverter.cs" />
+    <Compile Include="infoFields.cs" />
+    <Compile Include="Pages\infoPage.xaml.cs" />
+    <Compile Include="IO.cs" />
+    <Compile Include="IO_Ant.cs" />
+    <Compile Include="ListLoopingDataSource.cs" />
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="LoopingDataSourceBase.cs" />
+    <Compile Include="Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MapPage.xaml.cs" />
+    <Compile Include="Tiles\MediumTileControl.cs" />
+    <Compile Include="NotificationHub.cs" />
+    <Compile Include="Pass.cs" />
+    <Compile Include="passField.cs" />
+    <Compile Include="passType.cs" />
+    <Compile Include="Pages\pkPassGroupPage.xaml.cs" />
+    <Compile Include="Pages\pkPassPage.xaml.cs" />
+    <Compile Include="Pages\pkPassPageEntry.xaml.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PullDownToRefreshPanel.cs" />
+    <Compile Include="Pages\reminderPage.xaml.cs" />
+    <Compile Include="RichTextBoxBindingClass.cs" />
+    <Compile Include="SaveJpegCompleteEventArgs.cs" />
+    <Compile Include="Pages\setRelevantDatePage.xaml.cs" />
+    <Compile Include="Tiles\SmallTileControl.cs" />
+    <Compile Include="Tiles\splashUpdTilesControl.cs" />
+    <Compile Include="StateManager.cs" />
+    <Compile Include="StringToColorConverter.cs" />
+    <Compile Include="Tiles\TileUpdate.cs" />
+    <Compile Include="ToolStackCRCLib\Adler32.cs" />
+    <Compile Include="ToolStackCRCLib\CRC32.cs" />
+    <Compile Include="ToolStackPNGWriterLib\PngChunkTypes.cs" />
+    <Compile Include="ToolStackPNGWriterLib\PngHeader.cs" />
+    <Compile Include="ToolStackPNGWriterLib\PNGWriter.cs" />
+    <Compile Include="TouchFrameEventArgs.cs" />
+    <Compile Include="TouchPoint.cs" />
+    <Compile Include="tutorials\tutorialConfCalendar.cs" />
+    <Compile Include="tutorials\tutorialConfList.cs" />
+    <Compile Include="tutorials\tutorialConfNotifications.cs" />
+    <Compile Include="tutorials\tutorialMain.cs" />
+    <Compile Include="Pages\updatePage.xaml.cs" />
+    <Compile Include="VersionInfo.cs" />
+    <Compile Include="Tiles\WideTileControl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AppBar\appbar.cabinet.add.png" />
+    <Content Include="Assets\AppBar\appbar.cabinet.remove.png" />
+    <Content Include="Assets\AppBar\appbar.cabinet.variant.png" />
+    <Content Include="Assets\AppBar\appbar.calendar.png" />
+    <Content Include="Assets\AppBar\appbar.cancel.png" />
+    <Content Include="Assets\AppBar\appbar.delete.png" />
+    <Content Include="Assets\AppBar\appbar.download.png" />
+    <Content Include="Assets\AppBar\appbar.email.png" />
+    <Content Include="Assets\AppBar\appbar.globe.png" />
+    <Content Include="Assets\AppBar\appbar.here.png" />
+    <Content Include="Assets\AppBar\appbar.information.png" />
+    <Content Include="Assets\AppBar\appbar.list.png" />
+    <Content Include="Assets\AppBar\appbar.manage.png" />
+    <Content Include="Assets\AppBar\appbar.notification.png" />
+    <Content Include="Assets\AppBar\appbar.ok.png" />
+    <Content Include="Assets\AppBar\appbar.pin.png" />
+    <Content Include="Assets\AppBar\appbar.question.png" />
+    <Content Include="Assets\AppBar\appbar.refresh.png" />
+    <Content Include="Assets\AppBar\appbar.refreshUpdate.png" />
+    <Content Include="Assets\AppBar\appbar.save.png" />
+    <Content Include="Assets\AppBar\appbar.settings.png" />
+    <Content Include="Assets\AppBar\appbar.share.png" />
+    <Content Include="Assets\AppBar\appbar.social.twitter.png" />
+    <Content Include="Assets\AppBar\appbar.switch.png" />
+    <Content Include="Assets\AppBar\appbar.theme.png" />
+    <Content Include="Assets\AppBar\appbar.tiles.png" />
+    <Content Include="Assets\GroupType\boardingpass.png" />
+    <Content Include="Assets\GroupType\coupon.png" />
+    <Content Include="Assets\GroupType\eventticket.png" />
+    <Content Include="Assets\GroupType\generic.png" />
+    <Content Include="Assets\GroupType\storecard.png" />
+    <Content Include="Assets\PassHeadersList\boardingPassT.png" />
+    <Content Include="Assets\PassHeadersList\couponT.png" />
+    <Content Include="Assets\PassHeadersList\eventTicketT.png" />
+    <Content Include="Assets\PassHeadersList\genericT.png" />
+    <Content Include="Assets\PassHeadersList\storeCardT.png" />
+    <Content Include="Assets\PKTransitTypeAir.png" />
+    <Content Include="Assets\PKTransitTypeBoat.png" />
+    <Content Include="Assets\PKTransitTypeBus.png" />
+    <Content Include="Assets\PKTransitTypeGeneric.png" />
+    <Content Include="Assets\PKTransitTypeTrain.png" />
+    <Content Include="Assets\Tiles\appbar.calendar.png" />
+    <Content Include="Assets\Tiles\appbar.calendarK.png" />
+    <Content Include="Assets\Tiles\appbar.information.png" />
+    <Content Include="Assets\Tiles\appbar.informationK.png" />
+    <Content Include="Assets\Tiles\appbar.switch.png" />
+    <Content Include="Assets\Tiles\appbar.switchK.png" />
+    <Content Include="Assets\Tiles\WP-App-110.png" />
+    <Content Include="Assets\Tiles\WP-App-300.png" />
+    <Content Include="Assets\Tiles\WP-App-600.png" />
+    <Content Include="Assets\Tiles\WP-App-Logo.png" />
+    <Content Include="Assets\Tiles\WP-App-LogoK.png" />
+    <Content Include="Assets\Toast\WP-Toast-bP.png" />
+    <Content Include="Assets\Toast\WP-Toast-C.png" />
+    <Content Include="Assets\Toast\WP-Toast-eT.png" />
+    <Content Include="Assets\Toast\WP-Toast-G.png" />
+    <Content Include="Assets\Tutorial\List\listDate.png" />
+    <Content Include="Assets\Tutorial\List\listGroupComp.png" />
+    <Content Include="Assets\Tutorial\List\listGroupType.png" />
+    <Content Include="Assets\Tutorial\List\listNormalSize.png" />
+    <Content Include="Assets\Tutorial\List\listSmallSize.png" />
+    <Content Include="Assets\Tutorial\List\listTransparent.png" />
+    <Content Include="Assets\Tutorial\Main\imgEmail.png" />
+    <Content Include="Assets\Tutorial\Main\imgExplorer.png" />
+    <Content Include="Assets\Tutorial\Main\tapDown=de.jpg" />
+    <Content Include="Assets\Tutorial\Main\tapDown=en.jpg" />
+    <Content Include="Assets\Tutorial\Main\tapDown=es.jpg" />
+    <Content Include="Assets\Tutorial\Main\tapDown=fr.jpg" />
+    <Content Include="Assets\Tutorial\Main\tapDown=it.jpg" />
+    <Content Include="Assets\Tutorial\Main\tapDown=nl.jpg" />
+    <Content Include="Assets\Tutorial\Main\tapDown=pt.jpg" />
+    <Content Include="Assets\Tutorial\Main\tapDown=sv.jpg" />
+    <Content Include="Assets\Tutorial\Notifications\tutoNotif1=de.jpg" />
+    <Content Include="Assets\Tutorial\Notifications\tutoNotif1=en.jpg" />
+    <Content Include="Assets\Tutorial\Notifications\tutoNotif1=es.jpg" />
+    <Content Include="Assets\Tutorial\Notifications\tutoNotif1=fi.jpg" />
+    <Content Include="Assets\Tutorial\Notifications\tutoNotif1=fr.jpg" />
+    <Content Include="Assets\Tutorial\Notifications\tutoNotif1=it.jpg" />
+    <Content Include="Assets\Tutorial\Notifications\tutoNotif1=nl.jpg" />
+    <Content Include="Assets\Tutorial\Notifications\tutoNotif1=pt.jpg" />
+    <Content Include="Assets\Tutorial\Notifications\tutoNotif1=sv.jpg" />
+    <Content Include="Assets\Tutorial\Notifications\tutoNotifDismiss.png" />
+    <Content Include="Assets\Tutorial\Notifications\tutoNotifTap.png" />
+    <Content Include="Assets\WP-Large-05.png" />
+    <Content Include="Assets\WP-Large-150x150.png" />
+    <Content Include="Assets\WP-Large-44x44.png" />
+    <Content Include="Assets\WP-Large-71x71.png" />
+    <Content Include="Assets\WP-Small-05.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Pages\archivedPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\changesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\colorPickerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="confpages\confPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="confpages\confAboutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="confpages\confCalendarPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="confpages\confListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="confpages\confNotificationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="confpages\confSavePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="confpages\confThemePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="confpages\confTilesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="confpages\confUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\infoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MapPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\pkPassGroupPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\pkPassPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\pkPassPageEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\reminderPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\setRelevantDatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tiles\MediumTileControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tiles\SmallTileControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tiles\splashUpdTilesControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tiles\WideTileControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="tutorials\tutorialConfCalendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="tutorials\tutorialConfList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="tutorials\tutorialconfnotifications.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="tutorials\tutorialMain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\updatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Coding4Fun.Toolkit.Controls\Coding4Fun.Toolkit.Controls.csproj">
+      <Project>{a26cfb16-d7c3-4fb3-9671-f9017b2c54da}</Project>
+      <Name>Coding4Fun.Toolkit.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HereLauncher\HereLauncher.csproj">
+      <Project>{bd440ded-350b-4346-947f-ff6758e668a9}</Project>
+      <Name>HereLauncher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Phone.Controls.Toolkit\Microsoft.Phone.Controls.Toolkit.csproj">
+      <Project>{ceb0ef2e-5997-49e1-8b92-44c951a12235}</Project>
+      <Name>Microsoft.Phone.Controls.Toolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.WindowsAzure.Messaging\Microsoft.WindowsAzure.Messaging.csproj">
+      <Project>{8a57a875-eb98-4833-834f-ef56f939b930}</Project>
+      <Name>Microsoft.WindowsAzure.Messaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsPhone.MVVM.Tombstone\WindowsPhone.MVVM.Tombstone.csproj">
+      <Project>{1f967166-e134-4cdc-b917-57ff5b26175d}</Project>
+      <Name>WindowsPhone.MVVM.Tombstone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPControls\WPControls.csproj">
+      <Project>{0e2bcf5b-b86e-46e9-9860-98009e549d0a}</Project>
+      <Name>WPControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WriteableBitmapEx.WinRT\WriteableBitmapEx.WinRT.csproj">
+      <Project>{b2885691-739c-41f5-a678-20ec5576c300}</Project>
+      <Name>WriteableBitmapEx.WinRT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WriteableBitmapExWinPhone\WriteableBitmapExWinPhone.csproj">
+      <Project>{073cdf95-0f48-474b-8a77-f8bd172125e6}</Project>
+      <Name>WriteableBitmapExWinPhone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZXing.wp\ZXing.wp.csproj">
+      <Project>{d08445ae-1187-4bc0-9a17-278c78a6da25}</Project>
+      <Name>ZXing.wp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

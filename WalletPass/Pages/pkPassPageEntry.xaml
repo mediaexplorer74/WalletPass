@@ -1,0 +1,169 @@
+﻿<Page
+    x:Name="phoneApplicationPage"
+    x:Class="WalletPass.pkPassPageEntry"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:local="clr-namespace:WalletPass"
+    xmlns:toastinet="clr-namespace:Toastinet;assembly=Toastinet" 
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    RenderTransformOrigin="0.5,0.5">
+
+    <!--Page.ApplicationBar>
+        <ApplicationBar IsVisible="False" IsMenuEnabled="True" BackgroundColor="#FF0F2028" ForegroundColor="White" />
+    </Page.ApplicationBar-->
+    
+    <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
+    <Grid x:Name="LayoutRoot" Background="#FF0F2028" ManipulationCompleted="LayoutRoot_ManipulationCompleted" >
+        
+        <!--<toastinet:Toastinet x:Name="Toast"
+                             Title=""
+                             Duration="1" 
+                             Height="70" 
+                             ShowLogo="True" 
+                             Background="#FF006BA8" 
+                             Foreground="#FFFFFFFF"
+                             Canvas.ZIndex="1"
+                             VerticalAlignment="Top" FontSize="22"
+                             AnimationType="LeftToLeft" 
+                             >
+            
+        </toastinet:Toastinet>-->
+
+        <!--Control Pivot-->
+        <!--<phone:Pivot x:Name="mainPivot">-->
+        <!--Elemento Pivot uno-->
+        <!--Elemento Pivot dos-->
+        <!--<phone:PivotItem Margin="0,0,0,0">
+                <ListBox x:Name="infoPage"/>
+                </phone:PivotItem>-->
+        <!--<phone:PivotItem Margin="0,0,0,0" >-->
+
+
+        <Border x:Name="passPageBorder">
+                <Grid x:Name="passPage"/>
+        </Border>
+
+
+
+
+
+
+        <!--<StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFE8E8E8" Offset="0"/>
+                            <GradientStop Color="#FFD4D4D4" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <Image Height="30" Source="/Assets/PassHeaders/coupon.png"></Image>
+                    <Grid Margin="20,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="Auto"/>
+                            <ColumnDefinition Width ="*"/>
+                            <ColumnDefinition Width ="Auto"/>
+                            <ColumnDefinition Width ="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45"/>
+                            <RowDefinition Height="45"/>
+                        </Grid.RowDefinitions>
+
+                        <Image x:Name="imgLogo" Grid.Column="0" Grid.RowSpan="2" Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="textLogo" Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Bottom"/>
+                        <TextBlock x:Name="textHeaderLabel1" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right"/>
+                        <TextBlock x:Name="textHeaderLabel2" Grid.Column="3" Grid.Row="0" Text="Viaje a: CORDOBA C." HorizontalAlignment="Right" Foreground="#FFCC0099" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                        <TextBlock x:Name="textHeaderKey1" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                        <TextBlock x:Name="textHeaderKey2" Grid.Column="3" Grid.Row="1" Text="20/07/2013" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="32" Foreground="#FF636363"/>
+                    </Grid>
+                    <Canvas x:Name="lineCanvas" Background="#99000000" Height="1" Margin="20,10,20,0"/>
+                    <Grid Margin="20,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="*"/>
+                            <ColumnDefinition Width ="*"/>
+                            <ColumnDefinition Width ="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="60"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Name="textPrimaryLabel1" Grid.Column="0" Grid.Row="0" Text="LEON" Foreground="#FFCC0099" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="textPrimaryLabel2" Grid.Column="2" Grid.Row="0" Text="CORDOBA C." Foreground="#FFCC0099" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="textPrimaryKey1" Grid.Column="0" Grid.Row="1" Text="09:35" Foreground="#FF636363" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="60"/>
+                        <TextBlock x:Name="textPrimaryKey2" Grid.Column="2" Grid.Row="1" Text="15:15" Foreground="#FF636363" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="60"/>
+                        <Image x:Name="imgTransit" Height="70" Width="70" Grid.Column="1" Grid.RowSpan="2" Source="/Assets/PKTransitTypeTrain.png" Margin="0,10,0,0" />
+                    </Grid>
+                    <Grid Margin="20,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="Auto"/>
+                            <ColumnDefinition Width ="*"/>
+                            <ColumnDefinition Width ="*"/>
+                            <ColumnDefinition Width ="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Name="textSecondaryLabel1" Grid.Column="0" Grid.Row="0" Text="Tren" Foreground="#FFCC0099" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                        <TextBlock x:Name="textSecondaryLabel2" Grid.Column="1" Grid.Row="0" Text="Coche" Foreground="#FFCC0099" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                        <TextBlock x:Name="textSecondaryLabel3" Grid.Column="2" Grid.Row="0" Text="Asiento" Foreground="#FFCC0099" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                        <TextBlock x:Name="textSecondaryLabel4" Grid.Column="3" Grid.Row="0" Text="Clase" Foreground="#FFCC0099" HorizontalAlignment="Right" FontWeight="Bold" VerticalAlignment="Bottom" Padding="0" FlowDirection="LeftToRight"/>
+
+                        <TextBlock x:Name="textSecondaryKey1" Grid.Column="0" Grid.Row="1" Text="ALVIA-02134" Foreground="#FF636363" FontStretch="Condensed" FontSize="22" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="textSecondaryKey2" Grid.Column="1" Grid.Row="1" Text="008" Foreground="#FF636363" HorizontalAlignment="Center" FontSize="22" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="textSecondaryKey3" Grid.Column="2" Grid.Row="1" Text="08D" Foreground="#FF636363" HorizontalAlignment="Center" FontSize="22" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="textSecondaryKey4" Grid.Column="3" Grid.Row="1" Text="Turista" Foreground="#FF636363" HorizontalAlignment="Right" FontSize="22" VerticalAlignment="Top"/>
+                    </Grid>
+
+                    <Grid Margin="20,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="Auto"/>
+                            <ColumnDefinition Width ="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Name="textAuxiliaryLabel1" Grid.Column="0" Grid.Row="0" Text="Pasajero" Foreground="#FFCC0099" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                        <TextBlock x:Name="textAuxiliaryLabel2" Grid.Column="1" Grid.Row="0" Text="Localizador" Foreground="#FFCC0099" HorizontalAlignment="Right" FontWeight="Bold" VerticalAlignment="Bottom"/>
+
+
+                        <TextBlock x:Name="textAuxiliaryKey1" Grid.Column="0" Grid.Row="1" Text="Daniel Ulfe Paredes" Foreground="#FF636363" FontStretch="Condensed" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="textAuxiliaryKey2" Grid.Column="1" Grid.Row="1" Text="Z8C9TE" Foreground="#FF636363" HorizontalAlignment="Right" FontSize="22" VerticalAlignment="Top"/>
+                    </Grid>
+                    <Grid Margin="0,10,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+
+                        <Rectangle  x:Name="Rectangle" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1" Margin="30,0" Fill="White"/>
+                        <Image Grid.Column="1" Grid.Row="0" Width="286" Height="15"/>
+                        <Image x:Name="imgBarCode" Grid.Column="1" Grid.Row="1" Width="200" Height="200"/>
+                        <TextBlock x:Name="textAltText" Grid.Column="1" Grid.Row="2" Text="7332900363521" HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center"/>
+                    </Grid>-->
+
+
+
+    </Grid>
+
+</Page>

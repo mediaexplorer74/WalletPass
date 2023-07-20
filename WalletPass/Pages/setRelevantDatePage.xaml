@@ -1,0 +1,181 @@
+﻿<Page
+    x:Class="WalletPass.setRelevantDatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:WalletPass"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" 
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:toolkitPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls.Toolkit" 
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    mc:Ignorable="d"
+    >
+
+    <Page.Resources>
+        <!--local:StringToColorConverter x:Key="StringToColor"/-->
+        <ExponentialEase x:Key="Ease" EasingMode="EaseIn"/>
+        <!--Style TargetType="CalendarItem">
+            <Setter Property="Background" Value="BlueViolet"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate  TargetType="CalendarItem">
+                        <Grid x:Name="OuterGrid" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+                            <Border 
+                            BorderThickness="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            BorderBrush="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }">
+                                <Grid Height="60" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Rectangle Grid.RowSpan="2" x:Name="BackgroundRectangle" Fill="{TemplateBinding Background}" />
+                                    <TextBlock 
+                                    x:Name="DayNumberBlock"
+                                    Text="{Binding Path=DayNumber, RelativeSource={RelativeSource TemplatedParent}}" 
+                                    Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" 
+                                    FontWeight="Light"
+                                    FontSize="24"
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Top" 
+                                    Margin="4,2,0,0"/>
+
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style-->
+        
+    </Page.Resources>
+    
+    <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="{Binding Source={StaticResource AppSettings}, Path=themeColorHeader,Converter={StaticResource StringToColor} }" Margin="0,-2,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Image Grid.Row="0" Grid.Column="0" Margin="0,0,0,0" Source="/Assets/Images/WP-IconSettings.png" HorizontalAlignment="Left" Visibility="Collapsed"  />-->
+            <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" Text="{Binding Path=LocalizedResources.AppBarButtonSetRelevantDate ,Source={StaticResource LocalizedStrings}}"
+                       FontSize="27" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                       FontFamily="Segoe WP Light" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" />
+            <!--<Button x:Name="btnHelp" Margin="0,-4,0,0" Grid.Column="2" Style="{StaticResource RoundButton}" Width="70" Height="70" BorderThickness="2" Background="Transparent" BorderBrush="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" 
+            Tapped="btnHelp_Tap" ManipulationStarted="btnHelp_ManipulationStarted" ManipulationCompleted="btnHelp_ManipulationCompleted">
+                <Rectangle x:Name="imgBtnHelp" Height="40" Width="40" Fill="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" RadiusY="30" RadiusX="30">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush ImageSource="/Assets/appbar/appbar.question.png" Stretch="Fill"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>-->
+        </Grid>        
+
+        <Pivot Grid.Row="2" HeaderTemplate="{StaticResource PivotHeader}">
+            <PivotItem Header="{Binding Path=LocalizedResources.setRelevantDateTextDate,Source={StaticResource LocalizedStrings}}" Margin="0,5,0,0">
+                <StackPanel>
+                    <CalendarDatePicker Name="Calendar" 
+                                         Margin="5,0,5,0"
+                                             Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }"
+                                             BorderBrush="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }"
+                                             />
+                </StackPanel>
+            </PivotItem>
+            <PivotItem Header="{Binding Path=LocalizedResources.setRelevantDateTextHour,Source={StaticResource LocalizedStrings}}" Margin="0,5,0,0">
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                            <!--IsExpandedChanged="HoursLoopingSelector_IsExpandedChanged" -->
+                <!--LoopingSelector                 
+                    x:Name="HoursLoopingSelector"
+                    Grid.Column="0"
+                    Width="148"          
+                        >
+                        <LoopingSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            Margin="6">
+                                    <TextBlock
+                                Text="{Binding}"
+                                FontSize="54"
+                                FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                Margin="0,-8"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </LoopingSelector.ItemTemplate>
+                        
+                    </LoopingSelector-->
+
+                <!--IsExpandedChanged="MinutesLoopingSelector_IsExpandedChanged"-->
+                <!--LoopingSelector
+                x:Name="MinutesLoopingSelector"
+                Grid.Column="1"
+                Width="148">
+
+                      <LoopingSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            Margin="6">
+                                    <TextBlock
+                                Text="{Binding}"
+                                FontSize="54"
+                                FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                Margin="0,-8"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </LoopingSelector.ItemTemplate>
+                    </LoopingSelector-->
+                
+                <!--LoopingSelector
+                Grid.Column="2"
+                x:Name="AMPMLoopingSelector"
+                Width="148"
+               >
+                <LoopingSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            Margin="6">
+                                    <TextBlock
+                                Text="{Binding}"
+                                FontSize="54"
+                                FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                Margin="0,-8"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </LoopingSelector.ItemTemplate>
+                    </LoopingSelector-->
+                </Grid>
+            </PivotItem>
+        </Pivot>
+        
+    </Grid>
+
+    <!--Page.ApplicationBar>
+        <ApplicationBar IsVisible="True"  IsMenuEnabled="True"/>
+        
+    </Page.ApplicationBar-->
+
+</Page>

@@ -1,0 +1,240 @@
+﻿<Page
+    x:Class="WalletPass.tutorialConfList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:WalletPass" 
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    mc:Ignorable="d"
+    >
+
+    <Page.Resources>
+        <local:StringToColorConverter x:Key="StringToColor"/>
+
+        <Style x:Key="ScrollViewerStyle1" TargetType="ScrollViewer">
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollViewer">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ScrollStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="00:00:00.5"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Scrolling">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="VerticalScrollBar"/>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="HorizontalScrollBar"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="NotScrolling"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <ScrollContentPresenter x:Name="ScrollContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}"/>
+                                <ScrollBar x:Name="VerticalScrollBar" HorizontalAlignment="Right" Height="Auto" IsHitTestVisible="False" IsTabStop="False" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Opacity="0" Orientation="Vertical" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{TemplateBinding VerticalOffset}" ViewportSize="{TemplateBinding ViewportHeight}" VerticalAlignment="Stretch" Width="5" 
+                                               Background="{Binding Source={StaticResource AppSettings}, Path=themeColorForegroundSemiBold,Converter={StaticResource StringToColor} }"/>
+                                <ScrollBar x:Name="HorizontalScrollBar" HorizontalAlignment="Stretch" Height="5" IsHitTestVisible="False" IsTabStop="False" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Opacity="0" Orientation="Horizontal" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{TemplateBinding HorizontalOffset}" ViewportSize="{TemplateBinding ViewportWidth}" VerticalAlignment="Bottom" Width="Auto"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ListBoxStyle1" TargetType="ListBox">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <ScrollViewer x:Name="ScrollViewer" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" Style="{StaticResource ScrollViewerStyle1}" >
+
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
+    <Grid  x:Name="LayoutRoot" Background="{Binding Source={StaticResource AppSettings}, Path=themeColorMain,Converter={StaticResource StringToColor} }">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="{Binding Source={StaticResource AppSettings}, Path=themeColorMain,Converter={StaticResource StringToColor} }" Margin="0,-2,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Image Grid.Row="0" Grid.Column="0" Margin="0,0,0,0" Source="/Assets/Images/WP-IconSettings.png" HorizontalAlignment="Left" Visibility="Collapsed"  />-->
+            <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" Text="{Binding Path=LocalizedResources.settingTextHelp ,Source={StaticResource LocalizedStrings}}" FontSize="27" VerticalAlignment="Center" HorizontalAlignment="Center"  FontFamily="Segoe WP Light" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" />
+        </Grid>
+        
+        <ListBox Grid.Row="1" Height="710" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="{Binding Source={StaticResource AppSettings}, Path=themeColorMain,Converter={StaticResource StringToColor} }" Style="{StaticResource ListBoxStyle1}" >
+
+            <TextBlock Text="{Binding Path=LocalizedResources.settingTextListElementSize  ,Source={StaticResource LocalizedStrings}}" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" FontSize="30" FontFamily="Segoe WP SemiLight" FontWeight="Bold"  Margin="12,20,0,0"/>
+
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Canvas Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Background="{Binding Source={StaticResource AppSettings}, Path=themeColorForegroundSemiBold,Converter={StaticResource StringToColor} }" Margin="15,10,0,0" Width="2"/>
+
+                <StackPanel Margin="10,0,0,0" Grid.Row="1" Grid.Column="1">
+                <TextBlock  Text="{Binding Path=LocalizedResources.settingTextListElementSizeOption1  ,Source={StaticResource LocalizedStrings}}" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" FontSize="26" FontFamily="Segoe WP SemiLight" FontWeight="Medium" Margin="12,0,0,0"/>
+                <Border BorderThickness="0" BorderBrush="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" Height="100" Width="346" HorizontalAlignment="Left" CornerRadius="10" Margin="20,0,0,0">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Assets/Tutorial/List/listNormalSize.png"/>
+                    </Border.Background>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Margin="10,0,0,0" Grid.Row="2" Grid.Column="1">
+                <TextBlock Text="{Binding Path=LocalizedResources.settingTextListElementSizeOption2  ,Source={StaticResource LocalizedStrings}}" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" FontSize="26" FontFamily="Segoe WP SemiLight" FontWeight="Medium" Margin="12,0,0,0"/>
+                <Border BorderThickness="0" BorderBrush="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" Height="75" Width="346" HorizontalAlignment="Left" CornerRadius="10" Margin="20,0,0,0" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Assets/Tutorial/List/listSmallSize.png"/>
+                    </Border.Background>
+                </Border>
+            </StackPanel>
+            </Grid> 
+
+            <Canvas Background="{Binding Source={StaticResource AppSettings}, Path=themeColorForegroundSemiBold,Converter={StaticResource StringToColor} }" Margin="10" Height="1" Width="436"/>
+
+            <TextBlock Text="{Binding Path=LocalizedResources.settingTextGroupingEnabled  ,Source={StaticResource LocalizedStrings}}" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" FontSize="30" FontFamily="Segoe WP SemiLight" FontWeight="Bold"  Margin="12,20,0,0"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.tutoListGroup ,Source={StaticResource LocalizedStrings}}" FontSize="24" FontFamily="Segoe WP Light" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" HorizontalAlignment="Center" Width="460" Margin="10,0,10,0" />
+
+        <Grid Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Canvas Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Background="{Binding Source={StaticResource AppSettings}, Path=themeColorForegroundSemiBold,Converter={StaticResource StringToColor} }" Margin="15,10,0,0" Width="2"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=LocalizedResources.settingTextGroupingOptions ,Source={StaticResource LocalizedStrings}}" FontSize="24" FontFamily="Segoe WP Light" FontWeight="Bold" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" HorizontalAlignment="Left" Width="460" Margin="10,0,10,0" />
+
+            <StackPanel Margin="10,0,0,0" Grid.Row="1" Grid.Column="1">
+                <TextBlock  Text="{Binding Path=LocalizedResources.settingTextGroupingOptions1  ,Source={StaticResource LocalizedStrings}}" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" FontSize="26" FontFamily="Segoe WP SemiLight" FontWeight="Medium" Margin="12,0,0,0"/>
+                <TextBlock Text="{Binding Path=LocalizedResources.tutoListGroupComp ,Source={StaticResource LocalizedStrings}}" FontSize="22" FontFamily="Segoe WP Light" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" HorizontalAlignment="Left" Width="460" Margin="15,0,10,0" />
+                <Border BorderThickness="0" BorderBrush="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" Height="163" Width="353" HorizontalAlignment="Left" CornerRadius="10" Margin="10,0,0,0">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Assets/Tutorial/List/listGroupComp.png"/>
+                    </Border.Background>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Margin="10,0,0,0" Grid.Row="2" Grid.Column="1">
+                <TextBlock Text="{Binding Path=LocalizedResources.settingTextGroupingOptions2  ,Source={StaticResource LocalizedStrings}}" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" FontSize="26" FontFamily="Segoe WP SemiLight" FontWeight="Medium" Margin="12,0,0,0"/>
+                <TextBlock Text="{Binding Path=LocalizedResources.tutoListGroupType ,Source={StaticResource LocalizedStrings}}" FontSize="22" FontFamily="Segoe WP Light" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" HorizontalAlignment="Left" Width="460" Margin="15,0,10,0" />
+                <Border BorderThickness="0" BorderBrush="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" Height="163" Width="353" HorizontalAlignment="Left" CornerRadius="10" Margin="10,0,0,0" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Assets/Tutorial/List/listGroupType.png"/>
+                    </Border.Background>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+                <Canvas Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Background="{Binding Source={StaticResource AppSettings}, Path=themeColorForegroundSemiBold,Converter={StaticResource StringToColor} }" Margin="15,10,0,0" Width="2"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=LocalizedResources.settingTextGroupingOrderOptions ,Source={StaticResource LocalizedStrings}}" FontSize="24" FontFamily="Segoe WP Light" FontWeight="Bold" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" HorizontalAlignment="Left" Width="460" Margin="10,0,10,0" />
+
+            <StackPanel Margin="10,0,0,0" Grid.Row="1" Grid.Column="1">
+                <TextBlock  Text="{Binding Path=LocalizedResources.settingTextGroupingOrderOptions1  ,Source={StaticResource LocalizedStrings}}" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" FontSize="26" FontFamily="Segoe WP SemiLight" FontWeight="Medium" Margin="12,0,0,0"/>
+                <TextBlock Text="{Binding Path=LocalizedResources.tutoListGroupDate ,Source={StaticResource LocalizedStrings}}" FontSize="22" FontFamily="Segoe WP Light" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" HorizontalAlignment="Left" Width="460" Margin="15,0,10,0" />
+
+            </StackPanel>
+
+            <StackPanel Margin="10,0,0,0" Grid.Row="2" Grid.Column="1">
+                <TextBlock Text="{Binding Path=LocalizedResources.settingTextGroupingOrderOptions2  ,Source={StaticResource LocalizedStrings}}" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" FontSize="26" FontFamily="Segoe WP SemiLight" FontWeight="Medium" Margin="12,0,0,0"/>
+                <TextBlock Text="{Binding Path=LocalizedResources.tutoListGroupAlpha ,Source={StaticResource LocalizedStrings}}" FontSize="22" FontFamily="Segoe WP Light" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" HorizontalAlignment="Left" Width="460" Margin="15,0,10,0" />
+            </StackPanel>
+        </Grid>
+
+        <Canvas Background="{Binding Source={StaticResource AppSettings}, Path=themeColorForegroundSemiBold,Converter={StaticResource StringToColor} }" Margin="10" Height="1" Width="436"/>
+
+            <!--Opciones de mostrar fecha de uso de los passbook-->
+        <TextBlock Text="{Binding Path=LocalizedResources.settingTextDateTime  ,Source={StaticResource LocalizedStrings}}" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" FontSize="30" FontFamily="Segoe WP SemiLight" FontWeight="Bold" Margin="12,30,8,0"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.tutoListShowDate ,Source={StaticResource LocalizedStrings}}" FontSize="24" FontFamily="Segoe WP Light" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" HorizontalAlignment="Center" Width="460" Margin="10,0,10,0" />
+            <Border BorderThickness="0" BorderBrush="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" Height="140" Width="346" HorizontalAlignment="Left" CornerRadius="10" Margin="20,0,0,0">
+            <Border.Background>
+                <ImageBrush ImageSource="/Assets/Tutorial/List/listDate.png"/>
+            </Border.Background>
+        </Border>
+            <Canvas Background="{Binding Source={StaticResource AppSettings}, Path=themeColorForegroundSemiBold,Converter={StaticResource StringToColor} }" Margin="10" Height="1" Width="436"/>
+
+        <!--Opciones de mostrar fecha de uso de los passbook-->
+        <TextBlock Text="{Binding Path=LocalizedResources.settingTextTransparency ,Source={StaticResource LocalizedStrings}}" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" FontSize="30" FontFamily="Segoe WP SemiLight" FontWeight="Bold" Margin="12,30,12,0"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.tutoListShowTransp ,Source={StaticResource LocalizedStrings}}" FontSize="24" FontFamily="Segoe WP Light" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" HorizontalAlignment="Center" Width="460" Margin="10,0,10,0" />
+            <Border BorderThickness="0" BorderBrush="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" Height="109" Width="346" HorizontalAlignment="Left" CornerRadius="10" Margin="20,0,0,0">
+            <Border.Background>
+                <ImageBrush ImageSource="/Assets/Tutorial/List/listTransparent.png"/>
+            </Border.Background>
+        </Border>
+
+            <Canvas Background="{Binding Source={StaticResource AppSettings}, Path=themeColorForegroundSemiBold,Converter={StaticResource StringToColor} }" Margin="10" Height="1" Width="436"/>
+            
+            <StackPanel>
+                <TextBlock Text="{Binding Path=LocalizedResources.settingTextListExpired ,Source={StaticResource LocalizedStrings}}" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" FontSize="30" FontFamily="Segoe WP SemiLight" FontWeight="Bold"  Margin="12,10,0,0"/>
+                <TextBlock Text="{Binding Path=LocalizedResources.tutoListShowListExpired ,Source={StaticResource LocalizedStrings}}" FontSize="24" FontFamily="Segoe WP Light" Foreground="{Binding Source={StaticResource AppSettings}, Path=themeColorForeground,Converter={StaticResource StringToColor} }" TextWrapping="Wrap" HorizontalAlignment="Center" Width="460" Margin="10,0,10,0" />
+                <Canvas Background="{Binding Source={StaticResource AppSettings}, Path=themeColorForegroundSemiBold,Converter={StaticResource StringToColor} }" Margin="10" Height="1" Width="436"/>
+            </StackPanel>
+
+            
+
+            <TextBlock Height="70" Width="480" Margin="0,10,0,0" />
+    </ListBox>
+        </Grid> 
+
+
+
+</Page>
